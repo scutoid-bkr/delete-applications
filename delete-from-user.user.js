@@ -125,7 +125,7 @@ async function deleteMessagesFromUser(username = "") {
     deleterDebug(`Found ${selectedMessages.length} messages`)
     messagesToDelete.push(selectedMessages)
 
-    thereAreMorePages = await nextPage(messageElement)
+    thereAreMorePages = messagesToDelete < 800 || await nextPage(messageElement)
   } while (thereAreMorePages)
 
   // Reset UI back to the first page
